@@ -1,0 +1,124 @@
+@import url('https://fonts.googleapis.com/css2?family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+  font-family: "Work Sans", sans-serif;
+  font-optical-sizing: auto;
+}
+
+body {
+  width: 100%;
+  height: 100%;
+  background-color: hsl(0, 0%, 100%);
+  font-size: 16px;
+}
+
+.container {
+  background: url(./images/background-pattern-desktop.svg) no-repeat;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.faq {
+  width: 800px;
+  min-height: fit-content;
+  background-color: hsl(275, 100%, 97%);
+  padding: 1.5rem;
+  border-radius: 1rem;
+  margin: 10rem 1rem 5rem 1rem;
+}
+
+.faq-header-icon {
+  display: flex;
+  justify-content: start;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+details {
+  width: 100%;
+}
+
+summary {
+  padding: 0.8rem;
+  padding-right: 2.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: hsl(292, 42%, 14%);
+  list-style: none;
+  cursor: pointer;
+  position: relative;
+}
+
+summary::-webkit-details-marker {
+  display: none;
+  /* Hide the default arrow in WebKit browsers */
+}
+
+summary::before {
+  content: url('./images/icon-plus.svg');
+  position: absolute;
+  right: 0rem;
+  top: 0.5rem;
+  transition: transform 0.3s ease;
+}
+
+details[open] summary::before {
+  content: url('./images/icon-minus.svg');
+}
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+details[open] p {
+  animation: slideDown 0.6s ease forwards;
+}
+
+p {
+  color: hsl(292, 16%, 49%);
+  padding: 0.5rem 1rem;
+  opacity: 0;
+}
+
+hr {
+  margin: 1rem 0;
+  border: none;
+  height: 2px;
+  background-color: hsla(293, 16%, 49%, 0.101);
+}
+
+@media (max-width: 375px) {
+  .container {
+    background: url('./images/background-pattern-mobile.svg') no-repeat;
+    height: 100%;
+    width: 100%;
+  }
+
+  .faq {
+    width: 100vw;
+    padding: 1rem;
+    margin: 5rem 1rem 5rem 1rem;
+  }
+
+  summary {
+    padding: 0.5rem 2.5rem 0.5rem 0rem;
+  }
+
+  p {
+    padding: 1rem 0rem;
+  }
+}
